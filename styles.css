@@ -50,3 +50,66 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media(max-width:600px){
   .footer-legal-row{flex-direction:column;align-items:flex-start}
 }
+
+
+/* --- Revision additions: work/proof, founder, process, narrowed capabilities,
+       contact qualifier, compact privacy line, brand-name strip --- */
+
+/* Selected work (proof) */
+.work{background:linear-gradient(180deg,rgba(255,255,255,.018),transparent)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:55px}
+.proof-card{display:flex;flex-direction:column;gap:12px;padding:28px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);transition:.25s transform,.25s border-color}
+.proof-card:hover{transform:translateY(-5px);border-color:rgba(224,171,82,.32)}
+.proof-meta{font-family:"Space Grotesk";font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.proof-card h3{font-family:"Space Grotesk";font-size:21px;line-height:1.25;margin:0}
+.proof-card p{color:var(--muted);margin:0;font-size:15px}
+.proof-result{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-family:"Space Grotesk";color:var(--accent2);font-size:15px}
+
+/* Founder */
+.founder{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:22px;padding:30px;border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle at 8% 20%,rgba(224,171,82,.10),transparent 42%),rgba(255,255,255,.02)}
+.founder>img{flex:none;width:88px;height:88px;border-radius:50%;object-fit:cover;border:1px solid rgba(224,171,82,.4);background:linear-gradient(145deg,rgba(224,171,82,.20),rgba(42,212,208,.10))}
+.founder-copy{flex:1 1 300px}
+.founder-copy strong{display:block;font-family:"Space Grotesk";font-size:19px}
+.founder-copy span{display:block;color:var(--muted);font-size:12.5px;margin:4px 0 10px}
+.founder-copy span a,.cap-more a{color:var(--accent);text-decoration:none}
+.founder-copy p{margin:0;color:var(--muted);font-size:15px}
+
+/* Capabilities narrowed to two lead offers */
+.capability-grid.lead{grid-template-columns:repeat(2,1fr);gap:22px}
+.capability-grid.lead .cap-card{padding:34px}
+.capability-grid.lead .cap-card h3{font-size:25px;line-height:1.2}
+.cap-card .icon{font-family:"Space Grotesk";font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.cap-more{max-width:760px;margin:38px auto 0;text-align:center;color:var(--muted);font-size:15px}
+
+/* Process */
+.process-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:55px}
+.process-step{display:flex;flex-direction:column;gap:10px;padding:30px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+.step-num{font-family:"Space Grotesk";font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.step-dur{font-size:12.5px;color:var(--muted)}
+.process-step h3{font-family:"Space Grotesk";font-size:22px;line-height:1.25;margin:4px 0 0}
+.process-step p{margin:0;color:var(--muted);font-size:15px}
+.step-out{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:#bfd0df}
+
+/* Brand-name strip (replaces the Brand Story section) */
+.name-strip{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:13.5px;color:var(--muted)}
+.name-strip div{display:flex;align-items:center;gap:9px}
+.name-strip span{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:rgba(224,171,82,.12);color:var(--accent);font-weight:800;font-size:12px}
+
+/* Contact: direct email + select + compact privacy line */
+.contact-direct{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-size:14px}
+.contact-direct strong{display:block;font-family:"Space Grotesk";color:var(--text);margin-bottom:4px}
+.contact-direct a{color:var(--accent);text-decoration:none}
+.contact-form select{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:12px;background:#0d1119;color:white;font:inherit;outline:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) calc(50% + 2px),calc(100% - 14px) calc(50% + 2px);background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.contact-form select:focus{border-color:rgba(224,171,82,.5)}
+.contact-form select option{background:#0d1119;color:#e8eef6}
+.form-privacy-line{margin:2px 0 0;font-size:12.5px;line-height:1.6;color:var(--muted)}
+.form-privacy-line a{color:var(--accent)}
+
+@media(max-width:900px){
+  .proof-grid,.process-list{grid-template-columns:1fr 1fr}
+  .capability-grid.lead{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .proof-grid,.process-list{grid-template-columns:1fr}
+  .founder{padding:24px;gap:18px}
+}

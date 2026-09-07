@@ -1,5 +1,11 @@
 const MAX_LENGTHS = { name: 200, email: 200, organisation: 200, message: 5000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const STAGE_LABELS = {
+  idea: 'Exploring an idea',
+  pilot: 'Running a pilot',
+  production: 'Already in production',
+  other: 'Something else',
+};
 
 export default {
   async fetch(request, env) {
@@ -33,6 +39,7 @@ async function handleContact(request, env) {
   const email = sanitize(data.email);
   const organisation = sanitize(data.organisation);
   const message = sanitize(data.message);
+  const stage = sanitize(data.stage);
 
   if (!name || !email || !message) {
     return jsonResponse({ ok: false, error: 'Name, email and message are required.' }, 400);
@@ -45,6 +52,9 @@ async function handleContact(request, env) {
       return jsonResponse({ ok: false, error: 'One or more fields are too long.' }, 400);
     }
   }
+  if (stage && !STAGE_LABELS[stage]) {
+    return jsonResponse({ ok: false, error: 'Invalid stage value.' }, 400);
+  }
 
   if (!env.RESEND_API_KEY) {
     return jsonResponse({ ok: false, error: 'Enquiries are temporarily unavailable. Please email admin@gavriqlabsglobal.com directly.' }, 503);
@@ -55,6 +65,7 @@ async function handleContact(request, env) {
     `Name: ${name}`,
     `Email: ${email}`,
     `Organisation: ${organisation || '(not provided)'}`,
+    `Stage: ${stage ? STAGE_LABELS[stage] : '(not provided)'}`,
     '',
     'Message:',
     message,

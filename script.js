@@ -30,6 +30,7 @@ if (contactForm) {
       name: document.getElementById('contactName').value,
       email: document.getElementById('contactEmail').value,
       organisation: document.getElementById('contactOrg').value,
+      stage: document.getElementById('contactStage')?.value || '',
       message: document.getElementById('contactMessage').value,
       company_website: document.getElementById('contactHoneypot').value,
     };

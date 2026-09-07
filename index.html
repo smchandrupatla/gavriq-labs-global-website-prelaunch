@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GAVRIQ Labs — Generative AI, Vision, Reasoning, Intelligence & Quality. Building practical intelligent systems for the future." />
-  <title>GAVRIQ Labs | Intelligent Technology, Built with Purpose</title>
+  <meta name="description" content="GAVRIQ Labs builds AI systems for regulated industries — evaluation-first, auditable, human-in-the-loop. Australian applied AI engineering." />
+  <title>GAVRIQ Labs | AI systems for regulated industries</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GAVRIQ Labs Global" />
+  <meta property="og:title" content="GAVRIQ Labs | AI systems for regulated industries" />
+  <meta property="og:description" content="Evaluation-first AI engineering for environments where a model has to be right, auditable and defensible." />
+  <meta property="og:url" content="https://gavriqlabsglobal.com/" />
+  <meta property="og:image" content="https://gavriqlabsglobal.com/assets/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,12 +31,13 @@
         <span class="brand-copy"><strong>GAVRIQ</strong><small>LABS</small></span>
       </a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <!-- "Brand Story" removed from primary nav; Work + Process promoted -->
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
+        <a href="#work">Work</a>
         <a href="#capabilities">Capabilities</a>
-        <a href="#principles">Principles</a>
-        <a href="#brand-story">Brand Story</a>
-        <a class="nav-cta" href="#contact">Start a Conversation</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Book a call</a>
       </nav>
     </div>
   </header>
@@ -36,34 +46,150 @@
     <section id="home" class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="eyebrow">GAVRIQ LABS • AI • RESEARCH • ENGINEERING</div>
-          <h1>Intelligent technology.<br><span>Built with purpose.</span></h1>
-          <p class="hero-lead">GAVRIQ Labs explores, designs and builds intelligent systems that combine generative AI, vision, reasoning, automation and rigorous engineering.</p>
+          <div class="eyebrow">APPLIED AI ENGINEERING • AUSTRALIA</div>
+          <h1>AI systems for work<br><span>that has to be right.</span></h1>
+          <p class="hero-lead">GAVRIQ Labs builds generative and agentic AI for regulated, high-consequence environments — where an output has to be accurate, auditable and defensible, not just impressive in a demo.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#capabilities">Explore Our Capabilities</a>
-            <a class="btn btn-secondary" href="#brand-story">Discover GAVRIQ</a>
+            <a class="btn btn-primary" href="#contact">Book a 30-minute call</a>
+            <a class="btn btn-secondary" href="#work">See our work</a>
           </div>
+          <!-- Facts, not adjectives. TODO: replace bracketed values. -->
           <div class="trust-strip">
-            <span>AI-first</span><span>Research-led</span><span>Enterprise-minded</span><span>Quality-driven</span>
+            <span>Australia-based</span><span>[X] years in production engineering</span><span>Evaluation-first delivery</span><span>Human approval by design</span>
           </div>
         </div>
         <div class="hero-visual reveal delay-1" aria-hidden="true">
           <div class="orb orb-main">
-            <div class="orb-core"><img src="assets/logo.svg" alt="GAVRIQ Labs Global logo" /></div>
+            <div class="orb-core"><img src="assets/logo.svg" alt="" /></div>
             <div class="ring ring-a"></div>
             <div class="ring ring-b"></div>
             <div class="ring ring-c"></div>
           </div>
-          <div class="floating-card card-one"><span>01</span><strong>Reason</strong><small>Context-aware intelligence</small></div>
-          <div class="floating-card card-two"><span>02</span><strong>Build</strong><small>Production-grade systems</small></div>
-          <div class="floating-card card-three"><span>03</span><strong>Improve</strong><small>Continuous quality loops</small></div>
+          <div class="floating-card card-one"><span>01</span><strong>Reason</strong><small>Decide if AI fits</small></div>
+          <div class="floating-card card-two"><span>02</span><strong>Build</strong><small>Ship to production</small></div>
+          <div class="floating-card card-three"><span>03</span><strong>Improve</strong><small>Keep it accurate</small></div>
         </div>
       </div>
     </section>
 
     <section class="statement section-sm">
       <div class="container statement-card reveal">
-        <p>We believe the next generation of software will not simply process information — it will <strong>understand context, reason over complexity, act responsibly and continuously improve.</strong></p>
+        <p>The hard part of AI is no longer making it answer — it is <strong>knowing when the answer is good enough to act on.</strong></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         NEW: PROOF — the highest-value addition on the page.
+         Replace the [bracketed] text with one real engagement,
+         internal build or open-source project. Anonymised is fine:
+         "a mid-size lender" beats no client at all. Delete any card
+         you can't fill honestly — one real card beats three empty.
+         ========================================================== -->
+    <section id="work" class="section work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">SELECTED WORK</div>
+          <h2>What we have actually built.</h2>
+          <p>Short notes on real systems — the problem, the approach, and what changed as a result.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card reveal">
+            <div class="proof-meta">[Sector] · [Duration]</div>
+            <h3>[What the system does, in one plain line]</h3>
+            <p>[The situation before you arrived — the manual process, the backlog, the risk.]</p>
+            <p>[What you built, and the notable engineering decision: the retrieval design, the eval harness, the approval step.]</p>
+            <div class="proof-result">[Outcome — with a number if you have one]</div>
+          </article>
+          <article class="proof-card reveal delay-1">
+            <div class="proof-meta">[Sector] · [Duration]</div>
+            <h3>[Second project — or an internal build / open-source tool]</h3>
+            <p>[Problem statement.]</p>
+            <p>[Approach and the interesting technical constraint.]</p>
+            <div class="proof-result">[Outcome or current status]</div>
+          </article>
+          <article class="proof-card reveal delay-2">
+            <div class="proof-meta">[Sector] · [Duration]</div>
+            <h3>[Third project — or delete this card]</h3>
+            <p>[Problem statement.]</p>
+            <p>[Approach.]</p>
+            <div class="proof-result">[Outcome]</div>
+          </article>
+        </div>
+
+        <!-- A named, findable human is the other half of credibility -->
+        <div class="founder reveal">
+          <img src="assets/founder.jpg" alt="[Founder name], founder of GAVRIQ Labs Global" width="88" height="88" />
+          <div class="founder-copy">
+            <strong>[Founder name]</strong>
+            <span>Founder · GAVRIQ Labs Global · <a href="[LinkedIn URL]">LinkedIn</a></span>
+            <p>[Two sentences of real track record: years, domains, the kinds of systems you have shipped and where. This is the sentence a cautious buyer is looking for.]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section capabilities">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <div class="eyebrow">WHAT WE DO</div>
+          <h2>Two things we do deeply.</h2>
+          <p>We lead with the work we would stake the company on, and stay honest about the rest.</p>
+        </div>
+        <!-- Narrowed from six equal capabilities to two lead offers.
+             The six identical "Explore →" links are gone: restore a link
+             only once a card has a real page behind it. -->
+        <div class="capability-grid lead">
+          <article class="cap-card reveal">
+            <div class="icon">01</div>
+            <h3>Agents for regulated back-office work</h3>
+            <p>Agents that close the loop on document-heavy process work — intake, triage, KYC review, reconciliation — with a human approval step and a full decision trail on every action.</p>
+          </article>
+          <article class="cap-card reveal delay-1">
+            <div class="icon">02</div>
+            <h3>Evaluation &amp; AI governance</h3>
+            <p>The layer most AI projects skip: offline and online evals, observability, red-teaming, safety controls and the audit evidence your risk and compliance teams will ask for.</p>
+          </article>
+        </div>
+        <p class="cap-more">We also build the supporting pieces these systems need — retrieval and knowledge platforms, document and multimodal pipelines, and the cloud-native APIs and data services underneath. <a href="#contact">Ask us about a specific stack.</a></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         NEW: PROCESS. Reason / Build / Improve was the strongest idea
+         on the old page and it was decoration beside the logo. Now a
+         named method with stages, outputs and durations.
+         TODO: confirm the week ranges match how you really work.
+         ========================================================== -->
+    <section id="process" class="section process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">HOW WE WORK</div>
+          <h2>Reason. Build. Improve.</h2>
+          <p>Three stages, each with a defined output — so you always know what you are getting, and when.</p>
+        </div>
+        <div class="process-list">
+          <div class="process-step reveal">
+            <div class="step-num">01 · Reason</div>
+            <div class="step-dur">[1–2 weeks]</div>
+            <h3>Decide whether AI is the right tool</h3>
+            <p>We map the process, find where judgement actually happens, and define what “good enough to act on” means in measurable terms.</p>
+            <div class="step-out">Output — scoped problem statement, success threshold, and an honest go / no-go.</div>
+          </div>
+          <div class="process-step reveal delay-1">
+            <div class="step-num">02 · Build</div>
+            <div class="step-dur">[4–8 weeks]</div>
+            <h3>Ship a system into real conditions</h3>
+            <p>Production engineering from day one — real data, real integrations, and human approval wherever the stakes require it.</p>
+            <div class="step-out">Output — a working system, its eval harness, and the runbook to operate it.</div>
+          </div>
+          <div class="process-step reveal delay-2">
+            <div class="step-num">03 · Improve</div>
+            <div class="step-dur">[ongoing]</div>
+            <h3>Keep it accurate as reality moves</h3>
+            <p>Monitoring, regression evals on every change, drift review and a governance record that holds up to scrutiny.</p>
+            <div class="step-out">Output — a quality loop your team can run without us.</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -74,31 +200,24 @@
           <h2>Turning emerging intelligence into practical capability.</h2>
         </div>
         <div class="about-copy reveal delay-1">
-          <p>GAVRIQ Labs is a technology and innovation company focused on the practical application of artificial intelligence, intelligent automation and advanced software engineering.</p>
-          <p>Our work sits at the intersection of experimentation and execution. We explore new ideas rapidly, validate them rigorously, and engineer solutions that are useful, scalable, secure and ready for real-world environments.</p>
+          <p>GAVRIQ Labs is an Australian technology company focused on the practical application of artificial intelligence, intelligent automation and advanced software engineering — with a bias toward sectors where accuracy is not optional.</p>
+          <p>We explore new ideas rapidly, validate them against measurable thresholds, and engineer solutions that are useful, scalable, secure and ready for real-world environments.</p>
+          <!-- TODO: replace with real countable facts -->
           <div class="metrics">
-            <div><strong>AI</strong><span>Generative & agentic systems</span></div>
-            <div><strong>R&D</strong><span>Applied research mindset</span></div>
-            <div><strong>Q</strong><span>Quality by design</span></div>
+            <div><strong>[N]</strong><span>Systems in production</span></div>
+            <div><strong>[N]</strong><span>Sectors served</span></div>
+            <div><strong>[N] yrs</strong><span>Engineering experience</span></div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="capabilities" class="section capabilities">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <div class="eyebrow">CORE CAPABILITIES</div>
-          <h2>From intelligent ideas to engineered outcomes.</h2>
-          <p>GAVRIQ Labs is designed to work across the full lifecycle of modern intelligent systems.</p>
-        </div>
-        <div class="capability-grid">
-          <article class="cap-card reveal"><div class="icon">✦</div><h3>Generative AI</h3><p>AI assistants, knowledge systems, content intelligence, domain copilots and retrieval-augmented applications.</p><a href="#contact">Explore →</a></article>
-          <article class="cap-card reveal delay-1"><div class="icon">◉</div><h3>Vision & Multimodal AI</h3><p>Systems that understand images, documents and mixed data to support richer automated decision-making.</p><a href="#contact">Explore →</a></article>
-          <article class="cap-card reveal delay-2"><div class="icon">⌘</div><h3>Reasoning & Agents</h3><p>Agentic workflows that can plan, coordinate, use tools, validate outputs and complete complex business tasks.</p><a href="#contact">Explore →</a></article>
-          <article class="cap-card reveal"><div class="icon">↗</div><h3>Intelligent Automation</h3><p>Workflow intelligence that connects systems, reduces repetitive effort and creates measurable operational leverage.</p><a href="#contact">Explore →</a></article>
-          <article class="cap-card reveal delay-1"><div class="icon">◇</div><h3>Platform Engineering</h3><p>Modern APIs, cloud-native platforms, data services and resilient architectures built for scale and change.</p><a href="#contact">Explore →</a></article>
-          <article class="cap-card reveal delay-2"><div class="icon">✓</div><h3>Quality & Governance</h3><p>Evaluation, observability, safety controls, governance and human oversight embedded into intelligent products.</p><a href="#contact">Explore →</a></article>
+          <!-- Brand etymology demoted from a nav-level section to one strip.
+               Pronunciation card and "constructed brand" paragraph removed. -->
+          <div class="name-strip">
+            <div><span>G</span>Generative AI</div>
+            <div><span>A</span>Advanced Intelligence</div>
+            <div><span>V</span>Vision</div>
+            <div><span>R</span>Reasoning</div>
+            <div><span>I</span>Innovation</div>
+            <div><span>Q</span>Quality</div>
+          </div>
         </div>
       </div>
     </section>
@@ -118,38 +237,14 @@
       </div>
     </section>
 
-    <section id="brand-story" class="section brand-story">
-      <div class="container brand-grid">
-        <div class="brand-panel reveal">
-          <div class="brand-large">GAVRIQ</div>
-          <div class="pronounce">Pronounced <strong>“GAV-rik”</strong></div>
-          <p>A distinctive name with a personal origin and a forward-looking technology identity.</p>
-        </div>
-        <div class="story-copy reveal delay-1">
-          <div class="eyebrow">THE NAME</div>
-          <h2>Built from people.<br>Expanded through purpose.</h2>
-          <p>The name <strong>GAVRIQ</strong> is a constructed brand inspired by thoughtful names. The individual fragments are intentionally blended so the result stands independently as a modern global technology identity.</p>
-          <div class="expansion">
-            <span>G</span><strong>Generative AI</strong>
-            <span>A</span><strong>Advanced Intelligence</strong>
-            <span>V</span><strong>Vision</strong>
-            <span>R</span><strong>Reasoning</strong>
-            <span>I</span><strong>Innovation</strong>
-            <span>Q</span><strong>Quality</strong>
-          </div>
-          <p class="note">This expansion expresses the company's technology philosophy while preserving the deeper personal story behind the name.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="section future">
       <div class="container future-card reveal">
         <div>
-          <div class="eyebrow">THE DIRECTION</div>
-          <h2>Build what comes next.</h2>
-          <p>We are interested in problems where intelligence, automation and software engineering can meaningfully reshape how people and organisations work.</p>
+          <div class="eyebrow">WHERE WE FOCUS</div>
+          <h2>Regulated, document-heavy, high-consequence.</h2>
+          <p>We are most useful where a wrong answer is expensive — lending and payments, insurance, compliance and regulatory reporting, and the operational back office behind them.</p>
         </div>
-        <div class="future-tags"><span>Enterprise AI</span><span>Agentic Systems</span><span>FinTech</span><span>RegTech</span><span>Intelligent Platforms</span><span>Applied R&D</span></div>
+        <div class="future-tags"><span>FinTech</span><span>RegTech</span><span>Insurance</span><span>Agentic Systems</span><span>Enterprise AI</span><span>Applied R&amp;D</span></div>
       </div>
     </section>
 
@@ -157,20 +252,36 @@
       <div class="container contact-grid">
         <div class="section-heading reveal">
           <div class="eyebrow">CONTACT</div>
-          <h2>Have an ambitious technology problem?</h2>
-          <p>GAVRIQ Labs is built for conversations that start with possibility and end with something practical.</p>
+          <h2>Tell us the process you would automate first.</h2>
+          <p>We will tell you honestly whether AI is the right tool for it — 30 minutes, no pitch. We reply within one business day.</p>
+          <div class="contact-direct">
+            <strong>Prefer email?</strong>
+            <a href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a>
+          </div>
         </div>
         <form id="contactForm" class="contact-form reveal delay-1">
-          <p class="form-privacy-notice">Privacy notice: GAVRIQ Labs Global collects the information you provide through this form to review and respond to your enquiry and communicate with you about your request. Please do not submit passwords, financial credentials, sensitive personal information or other confidential information through this form. Submitting an enquiry does not subscribe you to marketing communications. See our <a href="/privacy">Privacy Policy</a> or contact <a href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a> for privacy enquiries.</p>
           <label>Name<input id="contactName" type="text" placeholder="Your name" required></label>
           <label>Email<input id="contactEmail" type="email" placeholder="you@example.com" required></label>
           <label>Organisation<input id="contactOrg" type="text" placeholder="Company or organisation"></label>
-          <label>What are you exploring?<textarea id="contactMessage" rows="5" placeholder="Tell us about the opportunity, problem or idea..." required></textarea></label>
+          <!-- Light qualifier: makes every enquiry more useful, adds no friction -->
+          <label>Where are you up to?
+            <select id="contactStage">
+              <option value="">Select (optional)</option>
+              <option value="idea">Exploring an idea</option>
+              <option value="pilot">Running a pilot</option>
+              <option value="production">Already in production</option>
+              <option value="other">Something else</option>
+            </select>
+          </label>
+          <label>What process would you automate first?<textarea id="contactMessage" rows="5" placeholder="The workflow, roughly how much of it is manual today, and what &quot;good&quot; would look like&hellip;" required></textarea></label>
           <div class="hp-field" aria-hidden="true">
             <label>Leave this field blank<input id="contactHoneypot" type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
           </div>
           <button class="btn btn-primary" type="submit">Send Enquiry</button>
           <p id="formStatus" class="form-status" aria-live="polite"></p>
+          <!-- Five-sentence privacy wall compressed to one line and moved
+               below the submit button. Full detail lives on /privacy. -->
+          <p class="form-privacy-line">We use these details only to respond to your enquiry — no marketing lists. Please don’t send credentials or sensitive personal information. <a href="/privacy">Privacy Policy</a></p>
         </form>
       </div>
     </section>
@@ -179,22 +290,23 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div><div class="brand footer-brand"><img class="brand-mark" src="assets/logo.svg" alt="GAVRIQ Labs Global logo" width="42" height="42" /><span class="brand-copy"><strong>GAVRIQ</strong><small>LABS</small></span></div><p>GAVRIQ Labs Global — Intelligent technology. Built with purpose.</p></div>
-      <div><strong>Explore</strong><a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#principles">Principles</a><a href="#contact">Contact</a></div>
-      <div><strong>Legal &amp; Trust</strong><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/terms">Terms</a><a href="/security">Security</a><a href="/accessibility">Accessibility</a></div>
+      <div><strong>Explore</strong><a href="#work">Work</a><a href="#capabilities">Capabilities</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+      <div><strong>Get in touch</strong><a href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a><a href="#contact">Book a call</a></div>
     </div>
+    <!-- Duplicate legal column removed; legal links appear once, in small type -->
     <div class="container footer-legal-row">
       <nav aria-label="Legal">
         <a href="/privacy">Privacy</a><span aria-hidden="true">·</span>
         <a href="/cookies">Cookies</a><span aria-hidden="true">·</span>
         <a href="/terms">Terms</a><span aria-hidden="true">·</span>
         <a href="/security">Security</a><span aria-hidden="true">·</span>
-        <a href="/accessibility">Accessibility</a><span aria-hidden="true">·</span>
-        <a href="#contact">Contact</a>
+        <a href="/accessibility">Accessibility</a>
       </nav>
       <a class="footer-email" href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a>
     </div>
     <div class="container footer-bottom">
-      <span>© <span id="year"></span> GAVRIQ Labs Global. All rights reserved.</span>
+      <!-- Year hard-coded as a fallback so it can never render empty. -->
+      <span>© <span id="year">2026</span> GAVRIQ Labs Global. All rights reserved.</span>
       <span>Australia · Corporate registration details in progress.</span>
     </div>
   </footer>
