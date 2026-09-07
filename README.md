@@ -5,37 +5,20 @@ The corporate marketing and trust website for GAVRIQ Labs Global, served as a st
 Production domain: **https://gavriqlabsglobal.com** (canonical — `www` redirects here)
 
 ## Brand positioning
-GAVRIQ Labs Global is presented as a technology and innovation company focused on AI, intelligent automation, research and modern software engineering. Slogan: "Intelligent technology. Built with purpose."
+GAVRIQ Labs is presented as a technology and innovation company focused on AI, intelligent automation, research and modern software engineering.
 
-GAVRIQ Labs Global Pty Ltd is the intended future legal entity. **Corporate registration (ABN/ACN) is currently in progress** — do not represent it as already registered anywhere on the site.
+## Brand expansion used in the website
+- G — Generative AI
+- A — Advanced Intelligence
+- V — Vision
+- R — Reasoning
+- I — Innovation
+- Q — Quality
 
-## Architecture
-Plain static HTML/CSS/JS — no build step, no framework, no dependencies. Pages:
+The deeper name story references Gayathri, Abhay, Karthik and Supriya as the source inspiration for the constructed brand name.
 
-```
-/               index.html         Home
-/privacy        privacy.html       Privacy Policy
-/terms          terms.html         Terms of Use
-/cookies        cookies.html       Cookie & Tracking Policy
-/security       security.html      Security & Responsible Disclosure
-/accessibility  accessibility.html Accessibility Statement (WCAG 2.2 AA target)
-404.html                           Branded not-found page
-.well-known/security.txt           RFC 9116 security contact
-```
-
-Shared assets: `styles.css`, `script.js`, `assets/logo.svg`.
-
-Deployment configuration (Cloudflare Workers static assets):
-- `wrangler.jsonc` — asset serving config (`html_handling: auto-trailing-slash` for clean URLs, `not_found_handling: 404-page`)
-- `_headers` — security response headers (see Security below)
-- `_redirects` — `www` → apex canonical redirect
-
-## Local development
-Open `index.html` directly in a browser, or serve the folder with any static file server. To preview it the way Cloudflare will serve it (clean URLs, `_headers`, `_redirects`, 404 routing), use Wrangler:
-
-```
-npx wrangler dev
-```
+## Run locally
+Open `index.html` directly in a browser, or serve the folder with any static web server.
 
 ## Deployment
 Deployed to Cloudflare Workers (static assets) via `wrangler deploy`, using the Cloudflare Git integration from the `main` branch. Production and canonical domain: `gavriqlabsglobal.com`.
