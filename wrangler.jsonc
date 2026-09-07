@@ -2,13 +2,16 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "gavriq-labs-global-website-prelaunch",
   "compatibility_date": "2026-09-03",
+  "main": "src/worker.js",
 
   "workers_dev": true,
   "preview_urls": true,
 
   "assets": {
     "directory": ".",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   }
 }

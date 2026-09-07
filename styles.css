@@ -11,6 +11,8 @@
 
 .form-privacy-notice{font-size:12.5px;line-height:1.6;color:var(--muted);border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:12px;padding:14px 16px;margin:0}
 .form-privacy-notice a{color:var(--accent)}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn:disabled{opacity:.6;cursor:not-allowed}
 
 .policy-hero{padding:150px 0 30px}
 .policy-hero .eyebrow{margin-bottom:16px}

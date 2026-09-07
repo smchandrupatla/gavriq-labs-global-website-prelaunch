@@ -18,7 +18,7 @@ GAVRIQ Labs Global Pty Ltd is the intended future legal entity. **Corporate regi
 - Q — Quality
 
 ## Architecture
-Plain static HTML/CSS/JS — no build step, no framework, no dependencies. Pages:
+Mostly a static HTML/CSS/JS site, plus one small Worker script for the contact form. No build step, no framework. Pages:
 
 ```
 /               index.html         Home
@@ -33,10 +33,11 @@ Plain static HTML/CSS/JS — no build step, no framework, no dependencies. Pages
 
 Shared assets: `styles.css`, `script.js`, `assets/logo.svg`.
 
-Deployment configuration (Cloudflare Workers static assets):
-- `wrangler.jsonc` — asset serving config (`html_handling: auto-trailing-slash` for clean URLs, `not_found_handling: 404-page`)
+Deployment configuration (Cloudflare Workers static assets + one Worker script):
+- `wrangler.jsonc` — asset serving config (`html_handling: auto-trailing-slash` for clean URLs, `not_found_handling: 404-page`, `run_worker_first: ["/api/*"]` so the API route below reaches the Worker instead of being swallowed by the 404 fallback)
+- `src/worker.js` — the Worker entry point. Handles `POST /api/contact` (validates input, rejects a hidden honeypot field, calls the Resend API to email admin@gavriqlabsglobal.com); every other path is served directly from static assets and never touches this script
 - `_headers` — security response headers (see Security below)
-- `.assetsignore` — excludes `.git`, `.wrangler`, `docs/`, `README.md` and `wrangler.jsonc` from being uploaded as publicly servable files (Cloudflare Workers static assets does **not** exclude `.git` automatically — this file is required, not optional)
+- `.assetsignore` — excludes `.git`, `.wrangler`, `docs/`, `README.md`, `wrangler.jsonc` and `src/` from being uploaded as publicly servable files (Cloudflare Workers static assets does **not** exclude `.git` automatically — this file is required, not optional)
 
 ## Local development
 Open `index.html` directly in a browser, or serve the folder with any static file server. To preview it the way Cloudflare will serve it (clean URLs, `_headers`, 404 routing), use Wrangler:
@@ -51,7 +52,18 @@ Deployed to Cloudflare Workers (static assets) via `wrangler deploy`, using the 
 **www → apex redirect:** Cloudflare Workers static assets' `_redirects` file only supports relative, same-host redirects — it rejects cross-host rules like `www` → apex (deploy fails with `Invalid _redirects configuration: Only relative URLs are allowed`). The `www.gavriqlabsglobal.com` → `gavriqlabsglobal.com` canonical redirect must instead be configured as a **Cloudflare Redirect Rule or Bulk Redirect** at the dashboard/zone level (Rules → Redirect Rules), which runs at the edge independently of this Worker. This has not been configured from this repository and needs to be set up and verified in the Cloudflare dashboard.
 
 ## Contact form
-The contact form is currently front-end only (`script.js` intercepts submit and shows a confirmation message). No submission is transmitted anywhere yet. Before wiring it to a real backend, form service, or email workflow, re-run the privacy/tracking deployment review described in `docs/internal/processor-register.md` and update the Privacy Policy's service-provider section accordingly.
+The contact form POSTs to `/api/contact` (handled by `src/worker.js`), which sends the enquiry to **admin@gavriqlabsglobal.com** via [Resend](https://resend.com). Resend was chosen over Cloudflare's own Email Routing/`send_email` binding specifically because Email Routing would require pointing the zone's MX at Cloudflare, and the existing Google Workspace MX/SPF/DKIM must not be touched.
+
+**One-time setup required (not done from this repo — needs your Resend account and Cloudflare access):**
+1. Sign up at resend.com and add `gavriqlabsglobal.com` as a sending domain.
+2. Add the DNS records Resend gives you (SPF/DKIM-style TXT records) in Cloudflare DNS. These are **additive** — they do not touch or replace the existing Google Workspace MX/SPF/DKIM records. Wait for Resend to show the domain as verified before going further, otherwise sending will fail or land as unverified.
+3. Create a Resend API key.
+4. Add it to the Worker as a secret — either `npx wrangler secret put RESEND_API_KEY` (needs `wrangler login` first) or via the Cloudflare dashboard → Workers & Pages → this Worker → Settings → Variables and Secrets → add `RESEND_API_KEY` as **Encrypted**. Never put the key in `wrangler.jsonc` or commit it to the repo.
+5. Redeploy (push to `main`, or `wrangler deploy`).
+
+Until the secret is set, `/api/contact` responds with a graceful "temporarily unavailable, email us directly" message instead of erroring — the form doesn't break, it just can't send until step 4 is done.
+
+The form includes a hidden honeypot field and basic server-side validation (required fields, email format, length limits) against spam; there's no CAPTCHA/rate limiting beyond that yet — revisit if abuse becomes an issue.
 
 ## Privacy requirements
 - Privacy-by-design: collect the minimum necessary, no unnecessary tracking, no analytics/marketing trackers by default.

@@ -162,10 +162,13 @@
         </div>
         <form id="contactForm" class="contact-form reveal delay-1">
           <p class="form-privacy-notice">Privacy notice: GAVRIQ Labs Global collects the information you provide through this form to review and respond to your enquiry and communicate with you about your request. Please do not submit passwords, financial credentials, sensitive personal information or other confidential information through this form. Submitting an enquiry does not subscribe you to marketing communications. See our <a href="/privacy">Privacy Policy</a> or contact <a href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a> for privacy enquiries.</p>
-          <label>Name<input type="text" placeholder="Your name" required></label>
-          <label>Email<input type="email" placeholder="you@example.com" required></label>
-          <label>Organisation<input type="text" placeholder="Company or organisation"></label>
-          <label>What are you exploring?<textarea rows="5" placeholder="Tell us about the opportunity, problem or idea..." required></textarea></label>
+          <label>Name<input id="contactName" type="text" placeholder="Your name" required></label>
+          <label>Email<input id="contactEmail" type="email" placeholder="you@example.com" required></label>
+          <label>Organisation<input id="contactOrg" type="text" placeholder="Company or organisation"></label>
+          <label>What are you exploring?<textarea id="contactMessage" rows="5" placeholder="Tell us about the opportunity, problem or idea..." required></textarea></label>
+          <div class="hp-field" aria-hidden="true">
+            <label>Leave this field blank<input id="contactHoneypot" type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+          </div>
           <button class="btn btn-primary" type="submit">Send Enquiry</button>
           <p id="formStatus" class="form-status" aria-live="polite"></p>
         </form>
