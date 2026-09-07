@@ -59,14 +59,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
    hero copy, never competing with it for attention. */
 .hero{position:relative}
 .hero-grid{position:relative;z-index:1}
-.word-marquee{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-evenly}
-.marquee-row{display:flex;flex-wrap:nowrap;white-space:nowrap;width:max-content;font-family:"Space Grotesk";font-size:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,238,246,.08)}
-.marquee-row span{display:inline-flex;align-items:center;padding:0 20px}
-.marquee-row span::after{content:"•";margin-left:20px;color:rgba(224,171,82,.14)}
-.marquee-left{animation:marquee-scroll-left 90s linear infinite}
-.marquee-right{animation:marquee-scroll-right 80s linear infinite}
+.word-marquee{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-evenly;-webkit-mask-image:radial-gradient(ellipse 62% 58% at 33% 48%,transparent 15%,black 78%);mask-image:radial-gradient(ellipse 62% 58% at 33% 48%,transparent 15%,black 78%)}
+.marquee-row{display:flex;flex-wrap:nowrap;white-space:nowrap;width:max-content;font-family:"Space Grotesk";font-size:15px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(232,238,246,.15)}
+.marquee-row span{display:inline-flex;align-items:center;padding:0 18px}
+.marquee-row span::after{content:"•";margin-left:18px;color:rgba(224,171,82,.24)}
+.marquee-left{animation:marquee-scroll-left 130s linear infinite}
+.marquee-right{animation:marquee-scroll-right 120s linear infinite}
 @keyframes marquee-scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes marquee-scroll-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(max-width:900px){
+  .word-marquee{-webkit-mask-image:none;mask-image:none;opacity:.55}
+}
 
 /* Brand-name strip (replaces the Brand Story section) */
 .name-strip{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:13.5px;color:var(--muted)}
