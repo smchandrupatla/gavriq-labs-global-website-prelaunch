@@ -12,6 +12,7 @@ desktop.ini
 
 # Dependencies (if tooling is added later)
 node_modules/
+.wrangler/
 
 # Temp/preview files
 preview*.html

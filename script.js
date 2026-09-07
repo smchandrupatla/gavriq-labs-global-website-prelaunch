@@ -15,4 +15,15 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-document.getElementById('year').textContent = new Date().getFullYear();
+
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const status = document.getElementById('formStatus');
+    if (status) status.textContent = 'Thank you — your message is ready to be connected to your preferred email or backend service.';
+  });
+}
