@@ -5,7 +5,9 @@ The corporate marketing and trust website for GAVRIQ Labs Global, served as a st
 Production domain: **https://gavriqlabsglobal.com** (canonical — `www` redirects here)
 
 ## Brand positioning
-GAVRIQ Labs is presented as a technology and innovation company focused on AI, intelligent automation, research and modern software engineering.
+GAVRIQ Labs Global is presented as a technology and innovation company focused on AI, intelligent automation, research and modern software engineering. Slogan: "Intelligent technology. Built with purpose."
+
+GAVRIQ Labs Global Pty Ltd is the intended future legal entity. **Corporate registration (ABN/ACN) is currently in progress** — do not represent it as already registered anywhere on the site.
 
 ## Brand expansion used in the website
 - G — Generative AI
@@ -15,13 +17,38 @@ GAVRIQ Labs is presented as a technology and innovation company focused on AI, i
 - I — Innovation
 - Q — Quality
 
-The deeper name story references Gayathri, Abhay, Karthik and Supriya as the source inspiration for the constructed brand name.
+## Architecture
+Plain static HTML/CSS/JS — no build step, no framework, no dependencies. Pages:
 
-## Run locally
-Open `index.html` directly in a browser, or serve the folder with any static web server.
+```
+/               index.html         Home
+/privacy        privacy.html       Privacy Policy
+/terms          terms.html         Terms of Use
+/cookies        cookies.html       Cookie & Tracking Policy
+/security       security.html      Security & Responsible Disclosure
+/accessibility  accessibility.html Accessibility Statement (WCAG 2.2 AA target)
+404.html                           Branded not-found page
+.well-known/security.txt           RFC 9116 security contact
+```
+
+Shared assets: `styles.css`, `script.js`, `assets/logo.svg`.
+
+Deployment configuration (Cloudflare Workers static assets):
+- `wrangler.jsonc` — asset serving config (`html_handling: auto-trailing-slash` for clean URLs, `not_found_handling: 404-page`)
+- `_headers` — security response headers (see Security below)
+- `.assetsignore` — excludes `.git`, `.wrangler`, `docs/`, `README.md` and `wrangler.jsonc` from being uploaded as publicly servable files (Cloudflare Workers static assets does **not** exclude `.git` automatically — this file is required, not optional)
+
+## Local development
+Open `index.html` directly in a browser, or serve the folder with any static file server. To preview it the way Cloudflare will serve it (clean URLs, `_headers`, 404 routing), use Wrangler:
+
+```
+npx wrangler dev
+```
 
 ## Deployment
 Deployed to Cloudflare Workers (static assets) via `wrangler deploy`, using the Cloudflare Git integration from the `main` branch. Production and canonical domain: `gavriqlabsglobal.com`.
+
+**www → apex redirect:** Cloudflare Workers static assets' `_redirects` file only supports relative, same-host redirects — it rejects cross-host rules like `www` → apex (deploy fails with `Invalid _redirects configuration: Only relative URLs are allowed`). The `www.gavriqlabsglobal.com` → `gavriqlabsglobal.com` canonical redirect must instead be configured as a **Cloudflare Redirect Rule or Bulk Redirect** at the dashboard/zone level (Rules → Redirect Rules), which runs at the edge independently of this Worker. This has not been configured from this repository and needs to be set up and verified in the Cloudflare dashboard.
 
 ## Contact form
 The contact form is currently front-end only (`script.js` intercepts submit and shows a confirmation message). No submission is transmitted anywhere yet. Before wiring it to a real backend, form service, or email workflow, re-run the privacy/tracking deployment review described in `docs/internal/processor-register.md` and update the Privacy Policy's service-provider section accordingly.
@@ -39,6 +66,7 @@ The contact form is currently front-end only (`script.js` intercepts submit and 
 - `Strict-Transport-Security` (HSTS) is intentionally **not yet enabled** — enable only after verifying apex and `www` both serve HTTPS correctly in production, per the Phase 2 rollout notes. Do not add `preload` without a separate, explicit review.
 - Vulnerability reports: see `/security` and `/.well-known/security.txt`.
 - Never commit secrets, API keys or credentials to this repository.
+- The `.assetsignore` file must always exclude `.git` and `.wrangler` — without it, git history (including past commits) is uploaded as publicly fetchable static files. Verify this after any change to deployment config.
 - Google Workspace email DNS (MX, SPF, DKIM) must never be removed when touching DNS; deploy DMARC in staged mode (`p=none` → `p=quarantine` → `p=reject`), never jumping straight to enforcement.
 
 ## Accessibility target
