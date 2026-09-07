@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gavriq-labs-global-website-prelaunch",
+  "compatibility_date": "2026-09-03",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}
