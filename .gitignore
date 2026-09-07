@@ -17,3 +17,6 @@ node_modules/
 # Temp/preview files
 preview*.html
 preview*.png
+
+# Local monitor state (not shared across machines/CI)
+scripts/.monitor-state.json

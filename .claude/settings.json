@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/session-start-check.mjs",
+            "timeout": 60,
+            "async": true,
+            "statusMessage": "Running website health check..."
+          }
+        ]
+      }
+    ]
+  }
+}
