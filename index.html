@@ -160,7 +160,8 @@
           <h2>Have an ambitious technology problem?</h2>
           <p>GAVRIQ Labs is built for conversations that start with possibility and end with something practical.</p>
         </div>
-        <form class="contact-form reveal delay-1" onsubmit="event.preventDefault(); document.getElementById('formStatus').textContent='Thank you — your message is ready to be connected to your preferred email or backend service.';">
+        <form id="contactForm" class="contact-form reveal delay-1">
+          <p class="form-privacy-notice">Privacy notice: GAVRIQ Labs Global collects the information you provide through this form to review and respond to your enquiry and communicate with you about your request. Please do not submit passwords, financial credentials, sensitive personal information or other confidential information through this form. Submitting an enquiry does not subscribe you to marketing communications. See our <a href="/privacy">Privacy Policy</a> or contact <a href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a> for privacy enquiries.</p>
           <label>Name<input type="text" placeholder="Your name" required></label>
           <label>Email<input type="email" placeholder="you@example.com" required></label>
           <label>Organisation<input type="text" placeholder="Company or organisation"></label>
@@ -174,11 +175,25 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><div class="brand footer-brand"><img class="brand-mark" src="assets/logo.svg" alt="GAVRIQ Labs Global logo" width="42" height="42" /><span class="brand-copy"><strong>GAVRIQ</strong><small>LABS</small></span></div><p>Generative AI. Vision. Reasoning. Intelligence. Quality.</p></div>
+      <div><div class="brand footer-brand"><img class="brand-mark" src="assets/logo.svg" alt="GAVRIQ Labs Global logo" width="42" height="42" /><span class="brand-copy"><strong>GAVRIQ</strong><small>LABS</small></span></div><p>GAVRIQ Labs Global — Intelligent technology. Built with purpose.</p></div>
       <div><strong>Explore</strong><a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#principles">Principles</a><a href="#contact">Contact</a></div>
-      <div><strong>Focus</strong><span>Artificial Intelligence</span><span>Automation</span><span>Engineering</span><span>Research</span></div>
+      <div><strong>Legal &amp; Trust</strong><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/terms">Terms</a><a href="/security">Security</a><a href="/accessibility">Accessibility</a></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> GAVRIQ Labs. All rights reserved.</span><span>Intelligent technology, built with purpose.</span></div>
+    <div class="container footer-legal-row">
+      <nav aria-label="Legal">
+        <a href="/privacy">Privacy</a><span aria-hidden="true">·</span>
+        <a href="/cookies">Cookies</a><span aria-hidden="true">·</span>
+        <a href="/terms">Terms</a><span aria-hidden="true">·</span>
+        <a href="/security">Security</a><span aria-hidden="true">·</span>
+        <a href="/accessibility">Accessibility</a><span aria-hidden="true">·</span>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="footer-email" href="mailto:admin@gavriqlabsglobal.com">admin@gavriqlabsglobal.com</a>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> GAVRIQ Labs Global. All rights reserved.</span>
+      <span>Australia · Corporate registration details in progress.</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>
