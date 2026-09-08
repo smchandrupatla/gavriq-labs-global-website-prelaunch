@@ -16,6 +16,30 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pageMain = document.querySelector('main');
+
+if (pageMain && !prefersReducedMotion) {
+  document.addEventListener('click', (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest('a[href]');
+    if (!link || (link.target && link.target !== '_self') || link.hasAttribute('download')) return;
+
+    let url;
+    try { url = new URL(link.href, window.location.href); } catch { return; }
+    if (!/^https?:$/.test(url.protocol) || url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+
+    event.preventDefault();
+    pageMain.classList.add('is-leaving');
+    window.setTimeout(() => { window.location.href = link.href; }, 200);
+  });
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) pageMain.classList.remove('is-leaving');
+  });
+}
+
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
