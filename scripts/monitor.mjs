@@ -81,6 +81,20 @@ async function checkAvailabilityAndContent(baseline) {
   }
 
   try {
+    const { res, body } = await fetchPage('/robots.txt');
+    record('availability: robots.txt', res.status === 200 && body.includes('Sitemap:'), `status=${res.status}`);
+  } catch (err) {
+    record('availability: robots.txt', false, String(err));
+  }
+
+  try {
+    const { res, body } = await fetchPage('/sitemap.xml');
+    record('availability: sitemap.xml', res.status === 200 && body.includes('<urlset'), `status=${res.status}`);
+  } catch (err) {
+    record('availability: sitemap.xml', false, String(err));
+  }
+
+  try {
     const { res, body } = await fetchPage(NOT_FOUND_PATH);
     record('404 handling (branded page)', res.status === 404 && /404/i.test(body), `status=${res.status}`);
   } catch (err) {
