@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BASE_URL = 'https://gavriqlabsglobal.com';
-const PAGES = ['/', '/privacy', '/terms', '/cookies', '/security', '/accessibility'];
+const PAGES = ['/', '/what-we-do', '/about', '/contact', '/privacy', '/terms', '/cookies', '/security', '/accessibility'];
 
 function sha256(text) {
   return createHash('sha256').update(text).digest('hex');

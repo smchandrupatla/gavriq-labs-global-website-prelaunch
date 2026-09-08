@@ -22,6 +22,9 @@ Mostly a static HTML/CSS/JS site, plus one small Worker script for the contact f
 
 ```
 /               index.html         Home
+/what-we-do     what-we-do.html    What We Do
+/about          about.html         About
+/contact        contact.html       Contact (enquiry form)
 /privacy        privacy.html       Privacy Policy
 /terms          terms.html         Terms of Use
 /cookies        cookies.html       Cookie & Tracking Policy
@@ -30,6 +33,8 @@ Mostly a static HTML/CSS/JS site, plus one small Worker script for the contact f
 404.html                           Branded not-found page
 .well-known/security.txt           RFC 9116 security contact
 ```
+
+The header/footer markup (nav, brand, legal links, copyright) is duplicated across every page rather than templated — there's no build step to generate it from a shared source. When changing the header or footer, update it in all ten HTML files.
 
 Shared assets: `styles.css`, `script.js`, `assets/logo.svg`.
 

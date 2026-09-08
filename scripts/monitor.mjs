@@ -34,7 +34,7 @@ const BASE_URL = 'https://gavriqlabsglobal.com';
 const BASELINE_PATH = path.join(__dirname, 'baseline.json');
 const STATE_PATH = path.join(__dirname, '.monitor-state.json');
 
-const PAGES = ['/', '/privacy', '/terms', '/cookies', '/security', '/accessibility'];
+const PAGES = ['/', '/what-we-do', '/about', '/contact', '/privacy', '/terms', '/cookies', '/security', '/accessibility'];
 const NOT_FOUND_PATH = '/this-page-should-not-exist-monitor-check';
 const SECURITY_TXT_PATH = '/.well-known/security.txt';
 
