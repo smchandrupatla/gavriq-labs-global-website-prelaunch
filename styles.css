@@ -62,15 +62,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
    clipped to the strip's width, so text always scrolls left/right —
    never vertically. flex:1 per line means the lines tile the full
    strip height with no gaps. */
-.word-rail{position:fixed;top:0;bottom:0;width:112px;overflow:hidden;pointer-events:none;display:flex;flex-direction:column;z-index:-1}
+.word-rail{position:fixed;top:0;bottom:0;width:224px;overflow:hidden;pointer-events:none;display:flex;flex-direction:column;z-index:-1}
 .word-rail-left{left:0}
 .word-rail-right{right:0}
 .rail-line{flex:1;min-height:0;display:flex;align-items:center;overflow:hidden;white-space:nowrap}
 .rail-line-track{display:inline-flex;white-space:nowrap;font-family:"Space Grotesk";font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .rail-line-track span{display:inline-flex;align-items:center;padding:0 14px}
 .rail-line-track span::after{content:"•";margin-left:14px;color:rgba(255,255,255,.16)}
-.rail-left .rail-line-track{animation:rail-h-left 28s linear infinite}
-.rail-right .rail-line-track{animation:rail-h-right 28s linear infinite}
+.rail-left .rail-line-track{animation:rail-h-left 56s linear infinite}
+.rail-right .rail-line-track{animation:rail-h-right 56s linear infinite}
 @keyframes rail-h-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes rail-h-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 /* Three-colour cycle and a four-step timing offset (independent moduli,
@@ -79,10 +79,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .rail-line:nth-child(3n+1) .rail-line-track{color:rgba(224,171,82,.44)}
 .rail-line:nth-child(3n+2) .rail-line-track{color:rgba(42,212,208,.4)}
 .rail-line:nth-child(3n) .rail-line-track{color:rgba(232,238,246,.32)}
-.rail-line:nth-child(4n+1) .rail-line-track{animation-delay:-3s}
-.rail-line:nth-child(4n+2) .rail-line-track{animation-delay:-9s}
-.rail-line:nth-child(4n+3) .rail-line-track{animation-delay:-15s}
-.rail-line:nth-child(4n) .rail-line-track{animation-delay:-21s}
+.rail-line:nth-child(4n+1) .rail-line-track{animation-delay:-6s}
+.rail-line:nth-child(4n+2) .rail-line-track{animation-delay:-18s}
+.rail-line:nth-child(4n+3) .rail-line-track{animation-delay:-30s}
+.rail-line:nth-child(4n) .rail-line-track{animation-delay:-42s}
 @media(max-width:900px),(orientation:portrait){
   .word-rail{display:none}
 }
