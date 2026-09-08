@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      # Host port 8888 is arbitrary — change the left-hand number if
+      # something else on your machine already uses it.
+      - "8888:8787"
+    environment:
+      # Optional: set RESEND_API_KEY in your shell or a local .env file
+      # to test real contact-form email delivery. Left unset, the form
+      # still works and responds gracefully (same as production without
+      # the secret configured).
+      - RESEND_API_KEY=${RESEND_API_KEY:-}

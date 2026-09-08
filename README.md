@@ -45,11 +45,28 @@ Deployment configuration (Cloudflare Workers static assets + one Worker script):
 - `.assetsignore` — excludes `.git`, `.wrangler`, `docs/`, `README.md`, `wrangler.jsonc` and `src/` from being uploaded as publicly servable files (Cloudflare Workers static assets does **not** exclude `.git` automatically — this file is required, not optional)
 
 ## Local development
-Open `index.html` directly in a browser, or serve the folder with any static file server. To preview it the way Cloudflare will serve it (clean URLs, `_headers`, 404 routing), use Wrangler:
+Open `index.html` directly in a browser, or serve the folder with any static file server. To preview it the way Cloudflare will serve it (clean URLs, `_headers`, 404 routing, the `/api/contact` Worker), use Wrangler:
 
 ```
 npx wrangler dev
 ```
+
+### Docker preview (review before pushing to GitHub/Cloudflare)
+`Dockerfile` / `docker-compose.yml` run the exact same `wrangler dev` engine in a container, for reviewing changes locally before committing/pushing. This is local-only tooling: it is excluded from the deployed site via `.assetsignore` and has no effect on the Cloudflare Workers Build pipeline (which runs `npx wrangler deploy` directly from the repo and never looks at these files) — building or running the image can't trigger, block, or otherwise touch a Cloudflare deployment.
+
+```
+docker build -t gavriq-labs-preview .
+docker run --rm -p 8888:8787 gavriq-labs-preview
+# open http://localhost:8888
+```
+
+or
+
+```
+docker compose up
+```
+
+Uses `node:22-slim` (Debian/glibc), not `-alpine` — Cloudflare's `workerd` runtime binary is a glibc build and fails to start on Alpine's musl libc. Host port 8888 is arbitrary; change the left-hand number in the `-p` flag or `docker-compose.yml` if something else on your machine already uses it. To test the contact form's real email send, pass `-e RESEND_API_KEY=your_key` (or set it in your shell before `docker compose up`) — without it the form still works, just responds with the same graceful "temporarily unavailable" message production shows when the secret isn't configured.
 
 ## Deployment
 Deployed to Cloudflare Workers (static assets) via `wrangler deploy`, using the Cloudflare Git integration from the `main` branch. Production and canonical domain: `gavriqlabsglobal.com`.

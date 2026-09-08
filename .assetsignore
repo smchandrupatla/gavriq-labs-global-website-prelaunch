@@ -9,4 +9,7 @@ README.md
 wrangler.jsonc
 src
 scripts
+Dockerfile
+.dockerignore
+docker-compose.yml
 *.log
