@@ -41,8 +41,8 @@ async function handleContact(request, env) {
   const message = sanitize(data.message);
   const stage = sanitize(data.stage);
 
-  if (!name || !email || !message) {
-    return jsonResponse({ ok: false, error: 'Name, email and message are required.' }, 400);
+  if (!name || !email) {
+    return jsonResponse({ ok: false, error: 'Name and email are required.' }, 400);
   }
   if (!EMAIL_RE.test(email)) {
     return jsonResponse({ ok: false, error: 'Please provide a valid email address.' }, 400);
@@ -68,7 +68,7 @@ async function handleContact(request, env) {
     `Stage: ${stage ? STAGE_LABELS[stage] : '(not provided)'}`,
     '',
     'Message:',
-    message,
+    message || '(not provided)',
   ].join('\n');
 
   const resendResponse = await fetch('https://api.resend.com/emails', {
